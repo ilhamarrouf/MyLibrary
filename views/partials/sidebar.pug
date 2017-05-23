@@ -1,0 +1,40 @@
+aside.main-sidebar
+    section.sidebar
+        ul.sidebar-menu
+            li
+                a(href='/catalog')
+                    i.fa.fa-dashboard
+                    span Dashboard
+            li.treeview
+                a(href='#')
+                    i.fa.fa-book
+                    span Book
+                    span.pull-right-container
+                        i.fa.fa-angle-left.pull-right
+                ul.treeview-menu
+                    li
+                        a(href='/catalog/book/create') Add new book
+                    li
+                        a(href='/catalog/books') All books
+            li.treeview
+                a(href='#')
+                    i.fa.fa-user
+                    span Author
+                    span.pull-right-container
+                        i.fa.fa-angle-left.pull-right
+                ul.treeview-menu
+                    li
+                        a(href='/catalog/author/create') Add new author
+                    li
+                        a(href='/catalog/authors') All authors
+            li.treeview
+                a(href='#')
+                    i.fa.fa-star
+                    span Genre
+                    span.pull-right-container
+                        i.fa.fa-angle-left.pull-right
+                ul.treeview-menu
+                    li
+                        a(href='/catalog/genre/create') Add new genre
+                    li
+                        a(href='/catalog/genres') All genres

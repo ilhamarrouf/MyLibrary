@@ -1,7 +1,17 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    head
+        title= title
+        include partials/head.pug
+
+    body.hold-transition.skin-blue.sidebar-mini
+        div.wrapper
+            include partials/nav.pug
+            include partials/sidebar.pug
+
+            div.content-wrapper
+                block content
+            include partials/footer.pug
+            div.control-sidebar-bg
+
+        include partials/js.pug

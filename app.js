@@ -4,26 +4,42 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var catalog = require('./routes/catalog'); //Import routes for "catalog" area of site
+var compression = require('compression');
+var helmet = require('helmet');
 
+// Create express application project
 var app = express();
+
+app.use(helmet());
+
+// Set up mongoose connection
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://pooluser:poolpass@ds149491.mlab.com:49491/local_library01');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator()); // Add this after the bodyParser middleware!
 app.use(cookieParser());
+
+app.use(compression()); // Compress all routes
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/catalog', catalog);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

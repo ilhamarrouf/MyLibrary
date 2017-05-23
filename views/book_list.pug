@@ -1,0 +1,36 @@
+extends layout
+
+block content  
+    section.content-header
+        h1
+            | #{title}
+        ol.breadcrumb
+            li
+                a(href='')
+                    i.fa.fa-dashboard
+                    |  Book
+            li.active list
+    section.content
+        .row
+            .col-xs-12
+                .box.box-primary
+                    .box-body
+                        ul.todo-list
+                            each book in book_list
+                                li
+                                    span
+                                        i.fa.fa-ellipsis-v
+                                    span.text
+                                        a(href=book.url) #{book.title}
+                                    span.label.label-default
+                                        i.fa.fa-user 
+                                            | #{book.author.name}
+                                    .tools
+                                        i
+                                            a(href=book.url + '/update',).btn.btn-primary.btn-xs
+                                                i.fa.fa-edit
+                                        i                                                
+                                            a(href=book.url + '/delete', onclick="return confirm('Are you sure?')").btn.btn-danger.btn-xs
+                                                i.fa.fa-trash-o
+                            else
+                                h1.text-center There are no books 

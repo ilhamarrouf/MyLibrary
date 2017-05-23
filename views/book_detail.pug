@@ -1,0 +1,39 @@
+extends layout
+
+block content  
+    section.content-header
+        h1
+            | !{title}
+        ol.breadcrumb
+            li
+                a(href='#')
+                    i.fa.fa-dashboard
+                    |  Book
+            li.active list
+    section.content
+        .row
+            .col-xs-12
+                .box.box-primary
+                    .box-body
+                        strong
+                            i.fa.fa-book.margin-r-5 
+                                | Title
+                        p.text-muted #{book.title}
+                        hr
+                        strong
+                            i.fa.fa-user.margin-r-5 
+                                | Author
+                        p.text-muted #{book.author.name}
+                        hr
+                        strong
+                            i.fa.fa-star.margin-r-5 
+                                | Genre
+                        p
+                            each val in book.genre
+                                a(href=val.url)
+                                    span.label.label-default #{val.name}
+                        hr
+                        strong
+                            i.fa.fa-quote-right.margin-r-5 
+                                | Summary
+                        p.text-justify #{book.summary}

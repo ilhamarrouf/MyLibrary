@@ -1,5 +1,40 @@
 extends layout
 
-block content
-  h1= title
-  p Welcome to #{title}
+block content  
+    section.content-header
+        h1
+            | Dashboard
+        ol.breadcrumb
+            li
+                a(href='/catalog')
+                    i.fa.fa-dashboard
+                    |  Home
+    section.content
+        .row
+            .col-lg-3.col-xs-6
+                .small-box.bg-aqua
+                    .inner
+                        h3 !{data.book_count}
+                        p Books
+                    .icon
+                        i.ion.ion-ios-book
+                    a(href='/catalog/books').small-box-footer More info 
+                        i.fa.fa-arrow-circle-right
+            .col-lg-3.col-xs-6
+                .small-box.bg-green
+                    .inner
+                        h3 !{data.author_count}
+                        p Authors
+                    .icon
+                        i.ion.ion-person
+                    a.small-box-footer More info 
+                        i.fa.fa-arrow-circle-right
+            .col-lg-3.col-xs-6
+                .small-box.bg-yellow
+                    .inner
+                        h3 !{data.genre_count}
+                        p Genres
+                    .icon
+                        i.ion.ion-star
+                    a.small-box-footer More info 
+                        i.fa.fa-arrow-circle-right
