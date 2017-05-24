@@ -1,0 +1,32 @@
+extends layout
+
+block content  
+    section.content-header
+        h1
+            | #{title}
+        ol.breadcrumb
+            li
+                a(href='')
+                    i.fa.fa-dashboard
+                    |  Author
+            li.active add
+    section.content
+        .row
+            .col-xs-12
+                .box.box-primary
+                    form(method='post', action='')
+                        .box-body
+                            .form-group
+                                label(for='firstName') First Name:
+                                input(id='firstName', type='text', name='first_name', required, value=(undefined === author ? '' : author.first_name)).form-control
+                            .form-group
+                                label(for='familyName') Family Name:
+                                input(id='familyName', type='text', name='family_name', required, value=(undefined === author ? '' : author.family_name)).form-control
+                            .form-group
+                                label(for='dateOfBirth') Date of birth:
+                                input(id='dateOfBirth', type='date', name='date_of_birth', required, value=(undefined === author ? '' : author.date_of_birth_yyyy_mm_dd)).form-control
+                            .form-group
+                                label(for='dateOfDeath') Date of death:
+                                input(id='dateOfDeath', type='date', name='date_of_death', required, value=(undefined === author ? '' : author.date_of_death_yyyy_mm_dd)).form-control
+                        .box-footer
+                            button(type='submit').btn.btn-primary.btn-flat.center-block Submit

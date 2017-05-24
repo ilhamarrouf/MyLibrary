@@ -1,0 +1,23 @@
+extends layout
+
+block content  
+    section.content-header
+        h1
+            | #{title}
+        ol.breadcrumb
+            li
+                a(href='')
+                    i.fa.fa-dashboard
+                    |  Genre
+            li.active add
+    section.content
+        .row
+            .col-xs-12
+                .box.box-primary
+                    form(method='post', action='')
+                        .box-body
+                            .form-group
+                                label(for='genre') Genre:
+                                input(id='genre', type='text', name='name', required, value=(undefined === genre ? '' : genre.name)).form-control
+                        .box-footer
+                            button(type='submit').btn.btn-primary.btn-flat.center-block Submit

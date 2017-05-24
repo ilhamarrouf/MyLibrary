@@ -8,7 +8,7 @@ block content
             li
                 a(href='')
                     i.fa.fa-dashboard
-                    |  Book
+                    |  Author
             li.active list
     section.content
         .row
@@ -16,19 +16,20 @@ block content
                 .box.box-primary
                     .box-body
                         ul.todo-list
-                            each book in book_list
+                            each author in author_list
                                 li
                                     span
                                         i.fa.fa-ellipsis-v
-                                    span.text
-                                        a(href=book.url) #{book.title} 
-                                        | (#{book.author.name})
+                                    span.text 
+                                        a(href=author.url) #{author.name} 
+                                        | (#{author.lifespan})
+
                                     .tools
                                         i
-                                            a(href=book.url + '/update',).btn.btn-primary.btn-xs
+                                            a(href=author.url + '/update',).btn.btn-primary.btn-xs
                                                 i.fa.fa-edit
                                         i                                                
-                                            a(href=book.url + '/delete', onclick="return confirm('Are you sure?')").btn.btn-danger.btn-xs
+                                            a(href=author.url + '/delete', onclick="return confirm('Are you sure?')").btn.btn-danger.btn-xs
                                                 i.fa.fa-trash-o
                             else
-                                h1.text-center There are no books 
+                                h1.text-center There are no authors 

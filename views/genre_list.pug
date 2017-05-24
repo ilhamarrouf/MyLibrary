@@ -1,0 +1,35 @@
+extends layout
+
+block content  
+    section.content-header
+        h1
+            | #{title}
+        ol.breadcrumb
+            li
+                a(href='')
+                    i.fa.fa-dashboard
+                    |  Genre
+            li.active list
+    section.content
+        .row
+            .col-xs-12
+                .box.box-primary
+                    .box-body
+                        .row
+                            each val in list_genres
+                                .col-md-4
+                                    ul.todo-list
+                                        li
+                                            span
+                                                i.fa.fa-ellipsis-v
+                                            span.text
+                                                a(href=val.url) #{val.name} 
+                                            .tools
+                                                i
+                                                    a(href=val.url + '/update',).btn.btn-primary.btn-xs
+                                                        i.fa.fa-edit
+                                                i                                                
+                                                    a(href=val.url + '/delete', onclick="return confirm('Are you sure?')").btn.btn-danger.btn-xs
+                                                        i.fa.fa-trash-o
+                            else
+                                h1.text-center There are no books 

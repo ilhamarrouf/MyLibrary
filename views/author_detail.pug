@@ -1,0 +1,36 @@
+extends layout
+
+block content  
+    section.content-header
+        h1
+            | #{title}
+        ol.breadcrumb
+            li
+                a(href='')
+                    i.fa.fa-dashboard
+                    |  Author
+            li.active detail
+    section.content
+        .row
+            .col-xs-12
+                .box.box-primary
+                    .box-body
+                        strong
+                            i.fa.fa-user.margin-r-5 
+                                | Author
+                        p #{author.name}
+                        hr
+                        strong
+                            i.fa.fa-user.margin-r-5 
+                                | Life Span
+                        p #{author.lifespan}
+                        hr
+                        ul.todo-list
+                            each book in author_books
+                                li
+                                    span
+                                        i.fa.fa-ellipsis-v
+                                    span.text 
+                                        a(href=book.url) #{book.title} 
+                            else
+                                h1.text-center This author has no books.

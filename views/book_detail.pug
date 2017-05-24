@@ -9,7 +9,7 @@ block content
                 a(href='#')
                     i.fa.fa-dashboard
                     |  Book
-            li.active list
+            li.active detail
     section.content
         .row
             .col-xs-12
@@ -18,12 +18,12 @@ block content
                         strong
                             i.fa.fa-book.margin-r-5 
                                 | Title
-                        p.text-muted #{book.title}
+                        p #{book.title}
                         hr
                         strong
                             i.fa.fa-user.margin-r-5 
                                 | Author
-                        p.text-muted #{book.author.name}
+                        p #{book.author.name}
                         hr
                         strong
                             i.fa.fa-star.margin-r-5 
@@ -31,7 +31,8 @@ block content
                         p
                             each val in book.genre
                                 a(href=val.url)
-                                    span.label.label-default #{val.name}
+                                    span.label.label-primary #{val.name}
+                                    | 
                         hr
                         strong
                             i.fa.fa-quote-right.margin-r-5 
