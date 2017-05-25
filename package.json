@@ -12,6 +12,8 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "express-flash": "0.0.2",
+    "express-session": "^1.15.3",
     "express-validator": "*",
     "helmet": "^3.6.1",
     "moment": "*",

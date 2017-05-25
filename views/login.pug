@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        title= title
+        include partials/head.pug
+    body.login-page
+        .login-box
+            .login-logo
+                b Login
+            .login-box-body
+                form(action='', method='post')
+                    if (messages.info)
+                        .alert.alert-danger.alert-dismissable
+                            button(type='button', data-dismiss='alert', aria-hidden='true').close [x]
+                            | #{messages.info}
+                    .form-group.has-feedback
+                        input(type='text', placeholder='Username : admin', name='username', value='').form-control
+                        span.glyphicon.glyphicon-user.form-control-feedback
+                    .form-group.has-feedback
+                        input(type='password', placeholder='Password : admin', name='password', value='').form-control
+                        span.glyphicon.glyphicon-lock.form-control-feedback
+                    .row
+                        .col-xs-12
+                            input(type='submit').btn.btn-primary.btn-block.btn-flat
+        include partials/js.pug
